@@ -1,0 +1,70 @@
+import React,{useState} from 'react'
+
+export default function Textarea(props) {
+  
+    const [text,setText]=useState('')
+
+    const handleCopyClick=()=>{
+      navigator.clipboard.writeText(text);
+    }
+
+    const handleStateChange=(event)=>{
+        setText(event.target.value);
+    }
+     const handleCapitalizeClick=()=>{
+        let newText=text.toUpperCase();
+        setText(newText);
+        console.log('Clicked upper case button')
+   
+    }
+    const handleLowerCaseClick=()=>{
+      let newText=text.toLowerCase();
+      setText(newText);
+      console.log('Clicked lower case button')
+      
+  }
+  const handleClearTextClick=()=>{
+    let newText='';
+    setText(newText);
+    console.log('Clicked lower case button')
+    
+}
+  console.log(text.split(' '));
+  console.log(text.split(' ').length);
+  var s;
+  if(text==="")
+    s = "0 words"
+  else if(text.split(' ').length===2)
+    s = "1 word"
+console.log(s)
+s=`${text.split(' ').length} words`
+  return (
+
+    <div>
+      {/* {f}; */}
+      <div className="mb-10">
+  <label htmlFor="exampleFormControlTextarea1" className="form-label my-3"><h1>{props.heading}</h1></label>
+  <textarea className="form-control" id="exampleFormControlTextarea1" rows="10" onChange={handleStateChange} value={text}  ></textarea>
+  <button className="btn btn-primary my-2 mx-3" onClick={handleCapitalizeClick}>Click Here to Capitalize</button>
+  <button className="btn btn-primary my-2 mx-3" onClick={handleLowerCaseClick}>Covert to lower case</button>
+  <button className="btn btn-primary my-2 mx-3" onClick={handleClearTextClick}>Clear Text</button>
+  <button className="btn btn-primary my-2 mx-3" onClick={handleCopyClick}>Copy Text</button>
+
+
+</div>
+<div className="container">
+ <h3>Your Text Summary</h3>
+{/* {/* {
+  text===""?<p>0 words</p>:<p>{ text.split(' ').length} words and {text.length} letters </p>
+} */}
+<p>{ text.split(' ').length} words and {text.length} letters </p>
+ <p>{(text.split(' ').length*0.8).toFixed(2)} Minutes read</p>
+</div>
+<div className="container">
+  <h3>Preview:</h3>
+  <p>{text}</p>
+</div>
+    </div>
+  )
+  
+}
