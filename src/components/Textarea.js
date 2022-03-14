@@ -44,7 +44,7 @@ s=`${text.split(' ').length} words`
       {/* {f}; */}
       <div className="mb-10">
   <label htmlFor="exampleFormControlTextarea1" className="form-label my-3" ><h1 style={{color:props.mode==='light'?'black':'white'}}>{props.heading}</h1></label>
-  <textarea style={{backgroundColor:props.mode==='light'?'white':'#042743'}} className="form-control" id="exampleFormControlTextarea1" rows="10" onChange={handleStateChange} value={text}  ></textarea>
+  <textarea /*style={{backgroundColor:props.mode==='light'?'white':'#042743'}}*/ className="form-control" id="exampleFormControlTextarea1" rows="10" onChange={handleStateChange} value={text}  ></textarea>
   <button className="btn btn-primary my-2 mx-3" onClick={handleCapitalizeClick}>Click Here to Capitalize</button>
   <button className="btn btn-primary my-2 mx-3" onClick={handleLowerCaseClick}>Covert to lower case</button>
   <button className="btn btn-primary my-2 mx-3" onClick={handleClearTextClick}>Clear Text</button>
