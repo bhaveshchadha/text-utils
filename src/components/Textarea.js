@@ -29,15 +29,15 @@ export default function Textarea(props) {
     console.log('Clicked lower case button')
     
 }
-  console.log(text.split(' '));
-  console.log(text.split(' ').length);
+  // console.log(text.split(' '));
+  // console.log(text.split(' ').length);
   var s;
-  if(text==="")
-    s = "0 words"
-  else if(text.split(' ').length===2)
-    s = "1 word"
-console.log(s)
-s=`${text.split(' ').length} words`
+  let myArray=text.split(' ')
+console.log((myArray))
+ 
+// console.log(myArray.splice (myArray.indexOf(' '), 2));
+s=`${ text.split(' ').length} words`
+
   return (
 
     <div style={{backgroundColor:props.mode==='light'?'white':'#042743'}}>
@@ -57,7 +57,9 @@ s=`${text.split(' ').length} words`
 {/* {/* {
   text===""?<p>0 words</p>:<p>{ text.split(' ').length} words and {text.length} letters </p>
 } */}
-<p>{ text.split(' ').length} words and {text.length} letters </p>
+<p>{ text.split(' ').filter((element)=>{
+  return element.length!==0
+}).length} words and {text.length} letters </p>
  <p>{(text.split(' ').length*0.8).toFixed(2)} Minutes read</p>
 </div>
 <div className="container" style={{backgroundColor:props.mode==='light'?'white':'#042743', color:props.mode==='light'?'black':'white'}}>
